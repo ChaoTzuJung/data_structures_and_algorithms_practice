@@ -17,34 +17,43 @@ public class Sort_Bubble3 {
     public static void bubble_sort_recursion(int[] nums) {
         // 回合數
         int round = 0;
-        bubble_sort_recursion_help01(nums, round)
+        bubble_sort_recursion_help01(nums, round);
     }
 
     public static void bubble_sort_recursion_help01(int[] nums, int round) {
         /** end condition */
-        if (round > nums.length) return;
+        if (round >= nums.length) return;
 
         /** main logic */
         int len = nums.length - round;
         int i_run = 1
-        bubble_sort_recursion_help02(nums, len, i_run)
+        bubble_sort_recursion_help02(nums, len, i_run);
 
         /** data flow */
         bubble_sort_recursion_help01(nums, round + 1);
     }
 
     public static void bubble_sort_recursion_help02(int[] nums, int len, int i_run) {
-        bubble_sort_recursion_help02(nums, len, i_run + 1 )
+        /** end condition */
+        if (i_run >= len) return;
+
+        /** main logic */
+        if (nums[i_run - 1] > nums[i_run - 1]) {
+            swap(nums, i_run - 1, i_run);
+        }
+
+        /** data flow */
+        bubble_sort_recursion_help02(nums, len, i_run + 1 );
     }
 
     private static void swap(int[] nums, int i_left, int i_right) {
         int tmp = nums[i_left];
-        nums[i_left] = nums[i_right];m
+        nums[i_left] = nums[i_right];
         nums[i_right] = tmp;
     }
 
     public static void main(string[] args) {
-        int[] nums = new int[]{;8, 2, 6 ,10, 4};
+        int[] nums = new int[]{8, 2, 6 ,10, 4};
         Sort_Bubble3.bubble_sort(nums);
         // Sort_Bubble3.bubble_sort_recursion(nums);
     } 
